@@ -1,0 +1,1 @@
+In LoadRunner iteration takes ~ 0.015 second (min: 0.010, avg: 0.015, max: 0.042).
