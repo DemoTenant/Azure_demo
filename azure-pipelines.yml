@@ -37,7 +37,7 @@ steps:
   displayName: 'Publish LRD SLA results'
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: 'scripts/**/*.xml'
+    testResultsFiles: 'devweb-scripts/**/*.xml'
     failTaskOnFailedTests: true
 - task: Npm@1
   displayName: 'Run npm build'
