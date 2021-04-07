@@ -1,0 +1,20 @@
+name: devWeb
+version: 2021.1.0
+
+enabled: true
+reporterType: JUnit                                                    # Supported reporters [JUnit, Tap]
+reportName: SLA-report-JUnit.xml
+rules:
+  - rule: Transaction Response Time
+    type: averageTRT
+    enabled: true
+    arguments:
+      - transactionName: AOS_landing_page
+        threshold:
+          - averageTime: 3000
+  - rule: Failing Transactions to Total Transaction Ratio
+    type: failureRate
+    enabled: true
+    arguments:
+      percentage: 3
+
