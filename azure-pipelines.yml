@@ -28,11 +28,16 @@ steps:
     command: 'custom'
     workingDir: 'shopping-platform'
     customCommand: 'run test:unit'
-- task: PythonScript@0
+#- task: PythonScript@0
+#  displayName: 'Run LRD scripts'
+#  inputs:
+#    scriptSource: 'filePath'
+#    scriptPath: 'run.py'
+- task: BatchScript@1
   displayName: 'Run LRD scripts'
   inputs:
-    scriptSource: 'filePath'
-    scriptPath: 'run.py'
+    filename: '%DEVWEB_PATH%\DevWeb.exe -mode=load .'  
+    workingFolder: 'devweb-scripts/AdvantageOnlineShopping'
 - task: PublishTestResults@2
   displayName: 'Publish LRD SLA results'
   inputs:
