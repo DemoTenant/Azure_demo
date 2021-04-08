@@ -14,30 +14,24 @@ steps:
   displayName: 'Run npm ci'
   inputs:
     command: 'ci'
-    workingDir: 'shopping-platform'
-    
-- task: Npm@1
-  displayName: 'Run npm lint'
-  inputs:
-    command: 'custom'
-    workingDir: 'shopping-platform'
-    customCommand: 'run lint'   
+    workingDir: 'shopping-platform'    
+#- task: Npm@1
+#  displayName: 'Run npm lint'
+#  inputs:
+#    command: 'custom'
+#    workingDir: 'shopping-platform'
+#    customCommand: 'run lint'   
 - task: Npm@1
   displayName: 'Run unit tests'
   inputs:
     command: 'custom'
     workingDir: 'shopping-platform'
     customCommand: 'run test:unit'
-#- task: PythonScript@0
-#  displayName: 'Run LRD scripts'
-#  inputs:
-#    scriptSource: 'filePath'
-#    scriptPath: 'run.py'
-- task: BatchScript@1
+- task: PythonScript@0
   displayName: 'Run LRD scripts'
   inputs:
-    filename: '%DEVWEB_PATH%\DevWeb.exe -mode=load .'  
-    workingFolder: 'devweb-scripts/AdvantageOnlineShopping'
+    scriptSource: 'filePath'
+    scriptPath: 'run.py'
 - task: PublishTestResults@2
   displayName: 'Publish LRD SLA results'
   inputs:
